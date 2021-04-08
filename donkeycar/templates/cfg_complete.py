@@ -26,22 +26,22 @@ MAX_LOOPS = None        # the vehicle loop can abort after this many iterations,
 DRIVE_TRAIN_TYPE = "SERVO_ESC" # SERVO_ESC|DC_STEER_THROTTLE|DC_TWO_WHEEL|SERVO_HBRIDGE_PWM|PIGPIO_PWM|MM1|MOCK
 
 #CAMERA
-CAMERA_TYPE = "PICAM"   # (PICAM|WEBCAM|CVCAM|CSIC|V4L|D435|MOCK|IMAGE_LIST)
-IMAGE_W = 160
-IMAGE_H = 120
+CAMERA_TYPE = "CSIC"   # (PICAM|WEBCAM|CVCAM|CSIC|V4L|D435|MOCK|IMAGE_LIST)
+IMAGE_W = 224
+IMAGE_H = 224
 IMAGE_DEPTH = 3         # default RGB=3, make 1 for mono
 CAMERA_FRAMERATE = DRIVE_LOOP_HZ
 CAMERA_VFLIP = False
 CAMERA_HFLIP = False
 # For CSIC camera - If the camera is mounted in a rotated position, changing the below parameter will correct the output frame orientation
-CSIC_CAM_GSTREAMER_FLIP_PARM = 0 # (0 => none , 4 => Flip horizontally, 6 => Flip vertically)
+CSIC_CAM_GSTREAMER_FLIP_PARM = 2 # (0 => none , 4 => Flip horizontally, 6 => Flip vertically)
 
 # For IMAGE_LIST camera
 # PATH_MASK = "~/mycar/data/tub_1_20-03-12/*.jpg"
 
 #9865, over rides only if needed, ie. TX2..
 PCA9685_I2C_ADDR = 0x40     #I2C address, use i2cdetect to validate this number
-PCA9685_I2C_BUSNUM = None   #None will auto detect, which is fine on the pi. But other platforms should specify the bus num.
+PCA9685_I2C_BUSNUM = 1   #None will auto detect, which is fine on the pi. But other platforms should specify the bus num.
 
 #SSD1306_128_32
 USE_SSD1306_128_32 = False    # Enable the SSD_1306 OLED Display
@@ -57,8 +57,8 @@ DRIVE_TRAIN_TYPE = "SERVO_ESC" # SERVO_ESC|DC_STEER_THROTTLE|DC_TWO_WHEEL|SERVO_
 
 #STEERING
 STEERING_CHANNEL = 1            #channel on the 9685 pwm board 0-15
-STEERING_LEFT_PWM = 460         #pwm value for full left steering
-STEERING_RIGHT_PWM = 290        #pwm value for full right steering
+STEERING_LEFT_PWM = 580         #pwm value for full left steering
+STEERING_RIGHT_PWM = 420        #pwm value for full right steering
 
 #STEERING FOR PIGPIO_PWM
 STEERING_PWM_PIN = 13           #Pin numbering according to Broadcom numbers
@@ -68,7 +68,7 @@ STEERING_PWM_INVERTED = False   #If PWM needs to be inverted
 #THROTTLE
 THROTTLE_CHANNEL = 0            #channel on the 9685 pwm board 0-15
 THROTTLE_FORWARD_PWM = 500      #pwm value for max forward throttle
-THROTTLE_STOPPED_PWM = 370      #pwm value for no movement
+THROTTLE_STOPPED_PWM = 380      #pwm value for no movement
 THROTTLE_REVERSE_PWM = 220      #pwm value for max reverse throttle
 
 #THROTTLE FOR PIGPIO_PWM
